@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,height=device-height,user-scalable=0,initial-scale=1.0 minimum-scale=1.0, maximum-scale=1.0">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+        <meta http-equiv="expires" content="0">
+        <title>vue-simple-calendar</title>
+    </head>
+    <body>
+        <div id="app">
+            <simple-calendar :parentTime="currentTime" @getQueryByDate="searchByDate"></simple-calendar>
+        </div>
+        <script src="./node_modules/vue/dist/vue.js"></script>
+        <script src="./dist/vue-simple-calendar.js"></script>
+        <script>
+            (function(win,doc){
+                function change(){
+                    doc.documentElement.style.fontSize = doc.documentElement.clientWidth * 20/320 + 'px';
+                };
+                change();
+                win.addEventListener('resize',change,false);
+                win.addEventListener('orientationchange',change,false); 
+            })(window,document);
+            new Vue({
+                el: '#app',
+                data(){
+                    let time = new Date();
+                    return {
+                        currentTime:this.simpleDateFormat(new Date(),'yyyy/MM/dd')       
+                    }
+                },
+                mounted(){
+                    // this.currentTime = new Date();   // 不止为何初始化赋值才好使，加载完成后赋值无效。
+                },
+                methods:{
+                    searchByDate(time){                 //子组件返回的时间信息
+                        // console.log('我是子组件传过来的时间',time);
+                    },
+                    simpleDateFormat(time, format){     // 格式化日期，ios下建议'2017/11/15',斜杠'/'代替横线'-'
+                        var t = new Date(time);
+                        var tf = function(i) {
+                            return (i < 10 ? '0' : '') + i
+                        };
+                        return format.replace(/yyyy|MM|dd|HH|mm|ss/g, function(a) {
+                            switch (a) {
+                                case 'yyyy':
+                                    return tf(t.getFullYear());
+                                case 'MM':
+                                    return tf(t.getMonth() + 1);
+                                case 'mm':
+                                    return tf(t.getMinutes());
+                                case 'dd':
+                                    return tf(t.getDate());
+                                case 'HH':
+                                    return tf(t.getHours());
+                                case 'ss':
+                                    return tf(t.getSeconds());
+                            }
+                        })
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
