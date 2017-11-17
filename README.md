@@ -2,9 +2,22 @@
 
 > simple calendar
 
+## Installation
+
+#### NPM
+```bash
+npm install vue-simple-calendar-zh --save
+```
+
+```javascript
+import simpleCalendar from 'vue-simple-calendar-zh'
+
+Vue.use(simpleCalendar);
+```
+
 | Item      |    Value | Qty  |
 | :-------- | --------:| :--: |
-|:parentTime|2017/11/11|'yyyy/MM/dd'|
+|:parentTime|`2017/11/11`|'yyyy/MM/dd'|
 |@getQueryByDate|function name|function|
 
 适用于`vue2.0` 注意是`REM布局`，其他布局可能会失效。适配iphone6。
@@ -26,6 +39,8 @@
 ![avatar](http://olrrovutt.bkt.clouddn.com/20171115163216.jpg)
 
 具体方法详情可查看目录中的index.html Configuration details
+
+![avatar](http://olrrovutt.bkt.clouddn.com/20171117141942.jpg)
 
 ![avatar](http://olrrovutt.bkt.clouddn.com/20171116162212.jpg)
 

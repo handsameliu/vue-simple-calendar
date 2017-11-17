@@ -1,7 +1,7 @@
 {
-  "name": "vue-simple-calendar",
+  "name": "vue-simple-calendar-zh",
   "description": "simple calendar",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "handsameliu <841489295@qq.com>",
   "license": "MIT",
   "private": false,
@@ -33,6 +33,6 @@
   "main": "dist/vue-simple-calendar.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/handsameliu/vue-calendar"
+    "url": "https://github.com/handsameliu/vue-simple-calendar"
   }
 }
